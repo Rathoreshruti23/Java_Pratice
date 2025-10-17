@@ -1,20 +1,16 @@
 package com.shrunity.Itfirm.DTO;
 
+import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
-    private int id;
-    private String name;
-    private String email;
-    private int contact_num;
-    public ProductDTO(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
+    private Long id;
+    private String ProductName;
+    private int price;
+    private String mfd;
+    private String exp;
 }

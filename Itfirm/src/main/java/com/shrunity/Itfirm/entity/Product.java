@@ -1,29 +1,29 @@
 package com.shrunity.Itfirm.entity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Entity
+@Table(name="Product")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "testdb")
-public class Product{
-
+public class Product {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    @Column(name = "product_name", nullable = false, length = 100)
+    private String productName;
 
     @Column(nullable = false)
-    private String name;
-
-    private String email;
+    private int price;
 
     @Column(nullable = false)
-    private int contact_num;  //@NonNull // Lombok: Java-side null check // JPA: DB-side NOT NULL
-
-
-
+    private String mfd;
+    @Column(nullable = false)
+    private String exp;
 }
