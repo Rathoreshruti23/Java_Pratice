@@ -4,12 +4,14 @@ import com.shrunity.Itfirm.DTO.ProductDTO;
 import com.shrunity.Itfirm.Repository.ProductRepository;
 import com.shrunity.Itfirm.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Profile("dev")
 public class ServiceImpl implements ProductService {
 
     @Autowired
