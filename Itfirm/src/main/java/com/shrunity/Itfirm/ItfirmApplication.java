@@ -10,8 +10,8 @@ public class ItfirmApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ItfirmApplication.class, args);
 		System.out.println("hello");
-		given().baseUri("http://localhost:8080").header("Content-Type","application/json").header("Authorization","Bearer <token>")
-				.when().get("/api/product").then().statusCode(200);
+//		given().baseUri("http://localhost:8080").header("Content-Type","application/json").header("Authorization","Bearer <token>")
+//				.when().get("/api/product").then().statusCode(200);
 
 
 	}

@@ -30,6 +30,10 @@ public class ItFirmController {
         ProductDTO productDTO=service.get(id);
         return ResponseEntity.ok(productDTO);
     }
+//    @GetMapping("/hello")
+//    public String sayHello() {
+//        return "Hello, DevTools Test!";
+//    }
 
     //create : post mapping
     @PostMapping

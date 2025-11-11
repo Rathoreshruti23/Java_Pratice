@@ -3,6 +3,7 @@ package com.shrunity.Itfirm.Service;
 import com.shrunity.Itfirm.DTO.ProductDTO;
 import com.shrunity.Itfirm.Repository.ProductRepository;
 import com.shrunity.Itfirm.entity.Product;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Profile("dev")
+@Slf4j
 public class ServiceImpl implements ProductService {
 
     @Autowired
@@ -42,6 +44,7 @@ public class ServiceImpl implements ProductService {
     @Override
     public String deleteAll() {
         productRepository.deleteAll();
+        log.info("Deleted successfully ");
         return "Deleted all items successfully";
     }
 
@@ -70,6 +73,7 @@ public class ServiceImpl implements ProductService {
 
     @Override
     public List<ProductDTO> getAll() {
+        log.warn("successfully ");
         return productRepository.findAll()
                 .stream()
                 .map(this::convertEntityToDTO)
@@ -80,6 +84,7 @@ public class ServiceImpl implements ProductService {
     public ProductDTO get(Long id) {
         Product exist = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with ID: " + id));
+        log.info("Getting by ID");
         return convertEntityToDTO(exist);
     }
 
