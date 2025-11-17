@@ -9,8 +9,8 @@ import lombok.*;
 public class ProductDTO {
 
     private Long id;
-    private String ProductName;
-    private int price;
+   @NonNull private String productName;
+    @NonNull  private int price;
     private String mfd;
     private String exp;
 }

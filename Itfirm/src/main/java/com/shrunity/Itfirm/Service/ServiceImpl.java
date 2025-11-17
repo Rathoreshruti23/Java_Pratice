@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Profile("dev")
+@Profile("prod")
 @Slf4j
 public class ServiceImpl implements ProductService {
 
@@ -20,7 +20,7 @@ public class ServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     // ✅ Convert DTO → Entity
-    private Product convertDTOToEntity(ProductDTO productDTO) {
+    private Product convertDTOToEntity(ProductDTO productDTO) { // converting api data to database object
         Product product = new Product();
         product.setId(productDTO.getId());
         product.setProductName(productDTO.getProductName());

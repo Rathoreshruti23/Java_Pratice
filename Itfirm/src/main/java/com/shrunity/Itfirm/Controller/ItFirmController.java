@@ -2,6 +2,8 @@ package com.shrunity.Itfirm.Controller;
 
 import com.shrunity.Itfirm.DTO.ProductDTO;
 import com.shrunity.Itfirm.Service.ProductService;
+import com.shrunity.Itfirm.exception.InvalidPriceException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -36,14 +38,20 @@ public class ItFirmController {
 //    }
 
     //create : post mapping
-    @PostMapping
-    public ResponseEntity<ProductDTO> createProduct(@Validated @RequestBody ProductDTO productDTO){
-//        if(productDTO.getPrice()>100000){
-//            return ResponseEntity.badRequest().body("Price too high");
-//        }
-        ProductDTO productDTO1=service.create(productDTO);
-        return ResponseEntity.ok(productDTO1);
+    @PostMapping("/create")
+    public ResponseEntity<ProductDTO> createProduct(@Validated @RequestBody ProductDTO productDTO) {
+
+        double price = productDTO.getPrice();
+
+        // Validate price according to your condition
+        if (price > 100000 || price <= 0) {
+            throw new InvalidPriceException("Price must be greater than 0 and less than or equal to 100000");
+        }
+
+        ProductDTO savedProduct = service.create(productDTO);
+        return ResponseEntity.ok(savedProduct);
     }
+
 
     //update by id
     @PutMapping("/{id}")
