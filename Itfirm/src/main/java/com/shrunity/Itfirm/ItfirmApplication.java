@@ -1,8 +1,7 @@
 package com.shrunity.Itfirm;
-
-import com.shrunity.Itfirm.DTO.ProductDTO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 @SpringBootApplication
 public class ItfirmApplication {
@@ -10,7 +9,10 @@ public class ItfirmApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ItfirmApplication.class, args);
 		System.out.println("hello");
-		new ProductDTO(1, "Laptop", "abc@example.com", 1234567890);
+		System.out.println("Yes i am running");
+//		given().baseUri("http://localhost:8080").header("Content-Type","application/json").header("Authorization","Bearer <token>")
+//				.when().get("/api/product").then().statusCode(200);
+
 
 	}
 
